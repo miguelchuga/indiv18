@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <report
+        id="report_librocompras_xlsx"
+        string="Libro Compras Excel"
+        model="mc_libro_compras.mc_libro_compras"
+        report_type="xlsx"
+        name="libro_compras.report_librocompras_xls"
+        file="libro_compras.report_librocompras_xls"
+    />
+
+</odoo>

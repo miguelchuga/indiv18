@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <record id="view_report_sale_order_markup" model="ir.ui.view">
+            <field name="name">Órdenes de Venta</field>
+            <field name="model">export.report.sale.order.markup</field>
+            <field name="arch" type="xml">
+                <form string="Informe de Órdenes de Venta">
+                    <group>
+                        <field name="fecha_desde"/>
+                        <field name="fecha_hasta"/>
+                        <field invisible="1" name="state"/>
+                        <field name="name" invisible="1"/>
+                    </group>
+                    <group>
+                        <div class="row" id="hash_header">
+                            <h2>Generación completa</h2>
+                            <p>Click aquí para abrir: <field name="data" readonly="1" filename="name"/></p>
+                        </div>
+                    </group>
+                    <footer>
+                        <button name="generate_file" string="Generar" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+               </form>
+            </field>
+        </record>
+
+        <record id="action_sale_order_markup" model="ir.actions.act_window">
+            <field name="name">Órdenes de Venta</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">export.report.sale.order.markup</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_report_sale_order_markup"/>
+            <field name="target">new</field>
+        </record>
+        
+        <menuitem id="menu_report_sale_order"
+        parent="sale.menu_sale_report"
+        action="action_sale_order_markup"
+        sequence="70"/>
+        
+    
+    </data>
+    
+
+</odoo>

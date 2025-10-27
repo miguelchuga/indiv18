@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_preview_wizard_all,access.preview.wizard.template.all,model_preview_wizard,,0,0,0,0
+access_preview_wizard_user,access.preview.wizard.template.user,model_preview_wizard,base.group_user,1,0,0,0
+access_preview_wizard_system,access.preview.wizard.template.system,model_preview_wizard,base.group_system,1,1,1,1
+
+access_filtered_domain_template_all,filtered.domain.template.all,model_filtered_domain_template,,0,0,0,0
+access_filtered_domain_template_user,filtered.domain.template.user,model_filtered_domain_template,base.group_user,1,0,0,0
+access_filtered_domain_template_system,filtered.domain.template.system,model_filtered_domain_template,base.group_system,1,1,1,1

@@ -1,0 +1,261 @@
+<openerp>
+    <data>
+
+
+
+
+ 		<record model="ir.ui.view" id="mc_libro_compras.mc_libro_compras_treeview">
+            <field name="name">mc_libro_compras.mc_libro_compras_treeview</field>
+            <field name="model">mc_libro_compras.mc_libro_compras</field>
+            <field name="arch" type="xml">
+                <list string="Libro compras" >
+                    <field name="company_id" options="{'no_open':True,'no_create': True}"/>
+                    <field name="name"/>
+                    <field name="tipo_fecha"/>                    
+                    <field name="fecha_desde"/>
+                    <field name="fecha_hasta"/>
+                </list>
+            </field>
+        </record>
+
+
+
+        <record model="ir.ui.view" id="mc_libro_compras_view">
+            <field name="name">mc_libro_compras.mc_libro_compras.view</field>
+            <field name="model">mc_libro_compras.mc_libro_compras</field>
+            <field name="arch" type="xml">
+                <form string="Libro de compras"> 
+                	<header>
+                        <button name="genera_libro" type="object" string="Generar" class="oe_highlight" />
+                        <button name="imprimir" type="object" string="Generar excel" class="oe_highlight" />
+                        <button name="foliar" type="object" string="Foliar Libro" class="oe_highlight" />
+                	</header> 
+                    <sheet>
+                    
+	                    <label for="name" class="oe_edit_only"/>
+	                    <h1>
+	                        <field name="name"/>
+	                    </h1>
+	                    <group string="Datos generales">
+                         <group string="Datos" >
+	                        <field name="company_id"/>
+	                        <!--field name="tipo_fecha"/-->
+	                        <field name="fecha_desde"/>
+	                        <field name="fecha_hasta"/>
+                            <field name="folio" required="1"/>
+
+                           </group>
+
+                           <group string="Varios">                             
+                            <field name="nombre_archivo" invisible="1"/>
+                            <field name="file_xlsx" readonly="1" filename="nombre_archivo"/>
+                            <field name="file_name" invisible="1"/>
+                            <field name="file_pdf" readonly="1" filename="file_name"/>
+                               <field name="journal_ids">
+                                  <list string="Diarios" editable="bottom">
+                                        <field name="name"/> 
+
+                                  </list>
+                               </field>                                
+                           </group>
+
+	                    </group>
+	
+	                   <notebook>
+	                   	
+	                        <page string="Compras">
+	                        	<field name="libro_line_ids">
+	                            	<list options="{'no_create': True}" string="Facturas de Compra">
+					                    <field name="fecha_documento"/>
+					                    <field name="establecimiento"/>
+					                    <field name="asiste_libro"/>
+					                    <field name="serie"/>
+					                    <field name="documento"/>
+					                    <field name="nit_dpi"/>
+					                    <field name="proveedor"/>
+					                    <field name="invoice_id"/>
+					                    <field name="local_bienes_gravados_combustible"/>
+					                    <field name="local_bienes_gravados"/>
+					                    <field name="local_bienes_pequenio_contribuyente"/>
+					                    <field name="local_servicios_gravados"/>
+					                    <field name="local_servicios_pequenio_contribuyente"/>				
+					                    <field name="local_bienes_exentos"/>
+					                    <field name="local_servicios_exentos"/>
+   					                    <field name="importacion_bienes_gravados"/>                    
+					                   	<field name="importacion_bienes_exentos"/>                  
+
+					                   	<field name="importacion_servicios_gravados"/>
+					                   	<field name="importacion_servicios_exentos"/>
+
+					                    <field name="importacion_bienes_gravados_total"/>                    
+					                   	<field name="importacion_bienes_exentos_total"/>                  
+					                    <field name="timbre_prensa"/>
+					                    <field name="tasa_municipal"/>
+					                    <field name="inguat"/>
+					                    <field name="idp"/>				                  
+					                    <field name="iva"/>
+                                        <field name="iva_local"/>
+                                        <field name="iva_importacion"/>
+
+
+					                    <field name="total"/>
+					                    <field name="otra_moneda"/>
+										<field name="base"/>
+	                           		</list>
+	                      		</field>
+	                        </page>
+	                        
+	                        <!--page string="Total Compras">
+	                        	<field name="libro_total_ids">
+	                            	<tree options="{'no_create': True}" string="Total Facturas de Compra">					                  
+					                    <field name="local_bienes_gravados_combustible"/>
+					                    <field name="local_bienes_gravados"/>
+					                    <field name="local_bienes_pequenio_contribuyente"/>
+					                    <field name="local_servicios_gravados"/>
+					                    <field name="local_servicios_pequenio_contribuyente"/>				
+					                    <field name="local_bienes_exentos"/>
+					                    <field name="local_servicios_exentos"/>			
+   					                    <field name="importacion_bienes_gravados"/>                    
+					                   	<field name="importacion_bienes_exentos"/>                  
+					                   	<field name="importacion_servicios_gravados"/>
+					                   	<field name="importacion_servicios_exentos"/>
+					                    <field name="importacion_bienes_gravados_total"/>                    
+					                   	<field name="importacion_bienes_exentos_total"/>                  
+					                    <field name="timbre_prensa"/>
+					                    <field name="tasa_municipal"/>
+					                    <field name="inguat"/>
+					                    <field name="idp"/>				                  
+					                    <field name="iva"/> 
+					                    <field name="total"/>
+					                    <field name="otra_moneda"/>
+										<field name="base"/>
+	                           		</tree>
+	                      		</field>
+	                        </page-->
+	                        
+	                        <!--page string="TOP 10">
+	                        	<field name="libro_top_proveedores_ids">
+		                        	<tree options="{'no_create': True}" string="Top 10 Facturas de Compra">
+		                    			<field name="nit_dpi"/>
+		                    			<field name="proveedor"/>
+		                    			<field name="cantidad"/>
+		      							<field name="base"/>
+		                         	</tree>
+	                        	</field>
+	                       	</page-->
+	                   
+	                   </notebook>
+<!--
+                        <group string="">
+                            <field name="libro_line_ids" options="{'no_create': True}"/>
+                            <field name="libro_top_proveedores_ids" options="{'no_create': True}"/>
+                        </group>                        
+-->                        
+                    </sheet>
+
+                </form>
+            </field>
+        </record>               	
+					
+		<record model="ir.ui.view" id="mc_libro_compras.mc_libro_compras_line_treeview">
+            <field name="name">mc_libro_compras.mc_libro_compras_line_treeview</field>
+            <field name="model">mc_libro_compras.mc_libro_compras_line</field>
+            <field name="arch" type="xml">          		        	 	
+                <list string="Facturas de Compra">		
+                    <field name="fecha_documento"/>
+                    <field name="establecimiento"/>
+                    <field name="asiste_libro"/>
+                    <field name="serie"/>
+                    <field name="documento"/>
+                    <field name="nit_dpi"/>
+                    <field name="proveedor"/>
+                    <field name="invoice_id"/>
+                    <field name="local_bienes_gravados_combustible"/>
+                    <field name="local_bienes_gravados"/>
+                    <field name="local_bienes_pequenio_contribuyente"/>
+                    <field name="local_servicios_gravados"/>
+                    <field name="local_servicios_pequenio_contribuyente"/>
+                    <field name="local_bienes_exentos"/>
+                    <field name="local_servicios_exentos"/>
+   					                    <field name="importacion_bienes_gravados"/>                    
+					                   	<field name="importacion_bienes_exentos"/>                  
+
+					                   	<field name="importacion_servicios_gravados"/>
+					                   	<field name="importacion_servicios_exentos"/>
+
+                    <field name="importacion_bienes_gravados_total"/>
+                   	<field name="importacion_bienes_exentos_total"/>                  
+                    <field name="timbre_prensa"/>
+                    <field name="tasa_municipal"/>
+                    <field name="inguat"/>
+                    <field name="idp"/>
+                    <field name="iva"/>
+                    <field name="total"/>
+                    <field name="otra_moneda"/>
+					<field name="base"/>
+                </list>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="mc_libro_compras.mc_libro_compras_top_proveedores_treeview">
+            <field name="name">mc_libro_compras.mc_libro_compras_top_proveedores_treeview</field>
+            <field name="model">mc_libro_compras.mc_libro_compras_top_proveedores</field>
+            <field name="arch" type="xml">          		        	 	
+                <list string="Top Proveedores">		
+                    <field name="nit_dpi"/>
+                    <field name="proveedor"/>
+                    <field name="cantidad"/>
+      				<field name="base"/>
+    			</list>
+            </field>
+        </record>
+
+
+        <!--record id="mc_libro_compras.mc_libro_compras_line_action_window" model="ir.actions.act_window">
+            <field name="name">Detalle libro compras</field>
+            <field name="res_model">mc_libro_compras.mc_libro_compras_line</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="mc_libro_compras.mc_libro_compras_line_treeview"/>
+		</record-->
+                    
+		<!--record id="mc_libro_compras.mc_libro_compras_top_proveedores_action_window" model="ir.actions.act_window">
+            <field name="name">Top de Proveedores</field>
+            <field name="res_model">mc_libro_compras.mc_libro_compras_top_proveedores</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="mc_libro_compras.mc_libro_compras_top_proveedores_treeview"/>
+        </record-->
+        
+        <!--menuitem
+            id="mc_libro_compras_line_menu"
+            name="Detalle libro compras"
+            parent="account.menu_finance_entries"
+            sequence="11"
+            action="mc_libro_compras.mc_libro_compras_line_action_window"
+        /-->
+        
+        <!--menuitem
+            id="mc_libro_compras_top_proveedores_menu"
+            name="Top Proveedores"
+            parent="account.menu_finance_entries"
+            sequence="12"
+            action="mc_libro_compras.mc_libro_compras_top_proveedores_action_window"
+        /-->
+        
+        <record id="mc_libro_compras.mc_libro_compras_action_window" model="ir.actions.act_window">
+            <field name="name">Libro de compras</field>
+            <field name="res_model">mc_libro_compras.mc_libro_compras</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        
+ 
+         
+        <menuitem
+            id="mc_libro_compras_menu"
+            name="libro de compras"
+            parent="account.menu_finance_reports"
+            sequence="20"
+            action="mc_libro_compras.mc_libro_compras_action_window"
+        />
+
+    </data>
+</openerp>

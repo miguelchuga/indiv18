@@ -1,2 +1,1 @@
-# indiv18
-Indivi odoo 18
+DJSAKDA# 13dsadadsadsadads3

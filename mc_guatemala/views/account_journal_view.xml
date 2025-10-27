@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_account_journal_form_gt" model="ir.ui.view">
+            <field name="name">account.journal.form_gt</field>
+            <field name="model">account.journal</field>
+<!--            <field name="type">form</field> -->
+            <field name="inherit_id" ref="account.view_account_journal_form"/>
+			<field name="arch" type="xml">
+            <xpath expr="//page[@name='advanced_settings']" position="after">
+                <page string="Guatemala">
+                    <group col="4">
+                        <separator string="Configuración de Libros SAT para Local" colspan="4"/>
+
+	       	            <field name="local"/>
+            	        <field name="gravado"/>
+            	        <field name="es_retencion_iva"/>
+            	        <field name="es_exencion_iva"/>
+
+       	        	    <field name="tipo_gasto"/>
+           	        	<field name="asiste_libro"/>
+	           	        <field name="tipo_transaccion"/>
+                	<field name="establecimiento"/>
+                	<field name="nombre_establecimiento"/>
+       	            	<field name="imprime_libro"/>
+       	            	<field name="serie_venta"/>
+       	            	<field name="tipo_venta"/>
+       	            	<!--field name="retencion_iva_cliente"/-->
+       	            	<field name="gface_electronico"/> 
+<!--
+                        <separator string="Configuracion de formatos Jasper" colspan="4"/>
+       	            	<field name="x_path"/>
+       	            	<field name="x_link"/>
+       	            	<field name="x_output"/>
+       	            	<field name="x_user"/>
+       	            	<field name="x_password"/>
+       	            	<field name="x_query"/>
+-->
+
+                    </group>
+                </page>
+                </xpath>
+			</field>
+        </record>
+    </data>
+</odoo>

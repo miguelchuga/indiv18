@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+    	<record model="ir.ui.view" id="gt_account_invoice_supplier_form_view">
+      		<field name="name">gt.invoice_supplier_form</field>
+      		<field name="model">account.invoice</field>
+      		<field name="inherit_id" ref="account.invoice_supplier_form"/>
+      		<field name="arch" type="xml">
+	        	<field name="partner_id" position="after">
+	          		<field name="serie_gt"/>
+	        	</field>
+<!--	        	<field name="date_due" position="before">
+	          		<field name="liquidaciones_id"/>
+	        	</field>
+
+	        	<field name="partner_id" position="after">
+	          		<field name="partner_liquidacion_id" domain="[('supplier', '=', True)]"/>
+	        	</field>
+-->
+
+      		</field>
+     	</record>
+	</data>
+</openerp>

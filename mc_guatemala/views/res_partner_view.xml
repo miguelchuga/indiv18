@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+    	<record model="ir.ui.view" id="gt_res_partner_form_view">
+      		<field name="name">gt.res_partner_form</field>
+      		<field name="model">res.partner</field>
+      		<field name="inherit_id" ref="base.view_partner_form"/>
+      		<field name="arch" type="xml">
+	        	<field name="vat" position="before">
+					<field name="x_codigo_interno"/>
+				</field>
+ <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+    <page string="Cuentas / Pagos" name="studio_page_8rm_1imqbcvv0">
+      <group name="studio_group_8rm">
+        <group name="studio_group_8rm_left"/>
+        <group name="studio_group_8rm_right"/>
+      </group>
+
+      <field name="cuentas_pagos_ids">
+<list string="Cuentas para un cliente en pagos" editable="bottom">
+      <field name="name"/>
+      <field name="account_id" optional="show"/>
+      <field name="payment_type" optional="show"/>
+    </list>
+      </field>
+
+    </page>
+  </xpath>
+
+
+ <!--xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+    <page string="Cuentas / Pagos" name="studio_page_49m_1i7tqdlgr">
+      <group name="studio_group_49m">
+        <group name="studio_group_49m_left"/>
+        <group name="studio_group_49m_right"/>
+      </group>
+
+      <field name="cuentas_pagos_ids">
+        <tree string="Cuentas para un cliente en pagos">
+          <field name="name"/>
+          <field name="account_id" optional="show"/>
+          <field name="payment_type" optional="show"/>
+        </tree>
+        <form>
+          <sheet string="Cuentas para un cliente en pagos" name="studio_sheet_47200b">
+            <group name="studio_group_d7c05c">
+              <field name="name"/>
+            </group>
+            <group name="studio_group_334993">
+              <group name="studio_group_50a913">
+                <field name="partner_id" invisible="True"/>
+                <field name="payment_type"/>
+              </group>
+              <group name="studio_group_3a26d2">
+                <field name="account_id"/>
+              </group>
+            </group>
+            <group name="studio_group_79eb89">
+              <separator/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+
+      
+    </page>
+  </xpath-->
+      		</field>
+     	</record>
+	</data>
+</odoo>

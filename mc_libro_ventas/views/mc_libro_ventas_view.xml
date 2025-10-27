@@ -1,0 +1,210 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="mc_libro_ventas.mc_libro_ventas_treeview">
+            <field name="name">mc_libro_ventas.mc_libro_ventas_treeview</field>
+            <field name="model">mc_libro_ventas.mc_libro_ventas</field>
+            <field name="arch" type="xml">
+                <list string="Libro ventas" >
+                    <field name="company_id" options="{'no_open':True,'no_create': True}"/>
+                    <field name="name"/>
+                    <field name="tipo_fecha"/>
+                    <field name="fecha_desde"/>
+                    <field name="fecha_hasta"/>
+                </list>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="mc_libro_ventas_view">
+            <field name="name">mc_libro_ventas.mc_libro_ventas.view</field>
+            <field name="model">mc_libro_ventas.mc_libro_ventas</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Libro de ventas">
+                 <header>
+                        <button name="genera_libro" type="object" string="Generar" class="oe_highlight" />
+                        <button name="imprimir" type="object" string="Generar excel" class="oe_highlight" />
+                        <button name="foliar" type="object" string="Foliar Libro" class="oe_highlight" />
+
+                </header>
+
+ 
+                    <sheet>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" />
+                        </h1>
+                        <group>
+                           <group string="Datos" >
+                               <field name="company_id"/>
+                               <!--field name="tipo_fecha"/-->
+                               <field name="fecha_desde"/>
+                               <field name="fecha_hasta"/>
+                               <field name="folio" required="1"/>
+                           </group>
+                           <group string="Varios"> 
+                                <field name="nombre_archivo" invisible="1"/>
+                                <field name="file_xlsx" readonly="1" filename="nombre_archivo"/>
+                                <field name="file_name" invisible="1"/>
+                                <field name="file_pdf" readonly="1" filename="file_name"/> 
+                               <field name="journal_ids">
+                                  <list string="Diarios" editable="bottom">
+                                        <field name="name"/> 
+
+                                  </list>
+                               </field>                                
+                           </group>
+                        </group>
+
+                        <group string="">
+                            <field name="libro_line_ids" options="{'no_create': True}" />
+                        </group>
+
+                    </sheet>
+
+                <!--div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div-->
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="mc_libro_ventas.mc_libro_ventas_line_treeview">
+            <field name="name">mc_libro_ventas.mc_libro_ventas_line_treeview</field>
+            <field name="model">mc_libro_ventas.mc_libro_ventas_line</field>
+            <field name="arch" type="xml">
+                <list string="Detalle" >
+
+
+                    <field name="establecimiento"/>
+                    <field name="fecha_documento"/>
+                    <field name="fecha_contable"/>
+                    <field name="asiste_libro"/>
+                    <field name="tipo_transaccion"/>
+                    <field name="tipo_documento"/>
+                    <field name="serie_venta"/>
+                    <field name="documento"/>
+                    <field name="name"/>
+                    <field name="nit_dpi"/>
+                    <field name="nombre"/>
+					<field name="estado"/>
+                    <field name="local_bienes_gravados"/>
+                    <field name="local_servicios_gravados"/>
+                    <field name="local_bienes_exentas"/>
+                    <field name="local_servicios_exentas"/>
+                    <field name="local_notas_abono"/>
+
+                    <field name="exportacion_bienes_gravados"/>
+                    <field name="exportacion_servicios_gravados"/>
+                    <field name="exportacion_bienes_exentos"/>
+                    <field name="exportacion_servicios_exentos"/>
+
+                    <field name="retension_isr"/>
+                    <field name="retension_iva"/>
+
+                    <field name="iva"/>
+                    <field name="total"/>
+                    <field name="otra_moneda"/>
+                    <field name="tipo_cambio"/>
+
+                </list>
+            </field>
+        </record>
+
+<!--
+        <record model="ir.ui.view" id="mc_libro_ventas.mc_libro_ventas_line_formview">
+            <field name="name">mc_libro_ventas.mc_libro_ventas_line_formview</field>
+            <field name="model">mc_libro_ventas.mc_libro_ventas_line</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <tree string="Detalle" >
+                    <field name="correlativo"/>
+                    <field name="fecha_documento"/>
+                    <field name="serie"/>
+                    <field name="documento"/>
+                    <field name="nit_dpi"/>
+                    <field name="proveedor"/>
+                    <field name="invoice_id"/>
+                    <field name="idp"/>
+                    <field name="local_bienes_gravados_combustible"/>
+                    <field name="local_bienes_gravados"/>
+                    <field name="local_servicios_gravados"/>
+                    <field name="importacion_bienes_exentos"/>
+                    <field name="importacion_bienes_gravados"/>
+                    <field name="activos_fijos"/>
+                    <field name="local_bienes_exentos"/>
+                    <field name="local_servicios_exentos"/>
+                    <field name="importacion_servicios_exentos"/>
+                    <field name="timbre_prensa"/>
+                    <field name="tasa_municipal"/>
+                    <field name="inguat"/>
+                    <field name="retension_isr"/>
+                    <field name="retension_iva"/>
+                    <field name="iva"/>
+                    <field name="total"/>
+                    <field name="otra_moneda"/>
+                </tree>
+            </field>
+        </record>
+-->
+
+<!--
+        <record id="view_account_tax_form_gt" model="ir.ui.view">
+            <field name="name">view.account_tax.form_gt</field>
+            <field name="model">account.tax</field>
+            <field name="inherit_id" ref="__export__.account_tax_3"/>
+			<field name="arch" type="xml">
+	            <xpath expr="//page[@name='Definition']" position="before">
+	                <page string="Guatemala">
+	                    <group col="4">
+	                        <separator string="Configuración para Guatemala" colspan="4"/>
+
+		       	            <field name="tipo_impuesto"/>
+	                	    
+	                    </group>
+	                </page>
+	
+	            </xpath>
+			</field>
+        </record>
+-->        
+        <!--record id="mc_libro_ventas.mc_libro_ventas_line_action_window" model="ir.actions.act_window">
+            <field name="name">Detalle libro ventas</field>
+            <field name="res_model">mc_libro_ventas.mc_libro_ventas_line</field>
+ 
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="mc_libro_ventas.mc_libro_ventas_line_treeview"/>
+        </record>
+
+        <menuitem
+            id="mc_libro_ventas_line_menu"
+            name="Detalle libro ventas"
+            parent="account.menu_finance_entries"
+            sequence="11"
+            action="mc_libro_ventas.mc_libro_ventas_line_action_window"
+        /-->
+
+
+
+        <record id="mc_libro_ventas.mc_libro_ventas_action_window" model="ir.actions.act_window">
+            <field name="name">Libro de ventas</field>
+            <field name="res_model">mc_libro_ventas.mc_libro_ventas</field>
+ <!--
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+-->
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="mc_libro_ventas.mc_libro_ventas_treeview"/>
+        </record>
+
+        <menuitem
+            id="mc_libro_ventas_menu"
+            name="Libro de ventas"
+            parent="account.menu_finance_reports"
+            sequence="30"
+            action="mc_libro_ventas.mc_libro_ventas_action_window"
+        />
+        
+    </data>
+</openerp>

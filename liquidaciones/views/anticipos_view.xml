@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_liquidaciones_anticipos_form" model="ir.ui.view">
+            <field name="name">view_liquidaciones_anticipos_form</field>
+            <field name="model">liquidaciones.anticipos</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Anticipos">
+                    <header>
+                        <button name="conciliar" string="Conciliar" type="object" />
+                        <!--button name="recalcular" string="Recalcular" type="object" /-->
+                        <button name="apuntes" string="Apuntes" type="object"   />
+                        <button name="cancelar" string="Abrir" type="object" />
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" readonly="state == 'conciliado'"/>
+                                <field name="partner_id" readonly="state == 'conciliado'"/>
+                                <field name="journal_id" readonly="state == 'conciliado'"/>
+                                <field name="total_facturas"   readonly="True"/>
+                                <field name="total_cheques"   readonly="True"/>
+                                <field name="total_descuadre" readonly="True"/>
+                                <field name="x_conciliado" readonly="True"/>
+                            </group>
+                            <group>
+                                <field name="date" readonly="state == 'conciliado'"/>
+                                <field name="usuario_id" readonly="state == 'conciliado'"/>
+                                <field name="account_partner_id" options="{'no_create': True}" readonly="state == 'conciliado'"/>
+                                <field name="account_anticipo_id" options="{'no_create': True}" readonly="state == 'conciliado'"/>
+                                <field name="account_ajuste_id" options="{'no_create': True}" readonly="state == 'conciliado'"/>
+                                <field name="move_id" readonly="True" />
+                                <field name="company_id" readonly="True"/>
+                            </group>
+                        </group>
+                        <group>
+                        	<field name="anticipo_line_ids" nolabel="1"	readonly="state != 'abierto'">
+		                    <!--list edit="false" create="false" delete="false" disable_form_view_link="true" decoration-danger="conciliado == 'NO'"-->
+		                    <list  create="false" edit="false"  decoration-danger="conciliado == 'NO'">
+		                         <field name="apunte_id" readonly="True"/>
+		                         <field name="move_id" readonly="True"/>
+		                         <field name="account_id" readonly="True"/>
+		                         <field name="date" readonly="True"/>
+		                         <field name="etiqueta" readonly="True"/>
+		                         <field name="debit"  sum="Total debito" readonly="True"/>
+		                         <field name="credit"  sum="Total credito" readonly="True"/>
+		                         <field name="saldo" sum="Total saldo" readonly="True"/>
+		                         <field name="conciliado" column_invisible="True" readonly="True"/>
+
+
+		                    </list>
+  		                   </field>
+                        </group>
+                        <!--field name="invoice_ids" readonly="True"/>
+                        <field name="payment_ids" readonly="True"/-->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_liquidaciones_anticipos_tree" model="ir.ui.view">
+            <field name="name">view_liquidaciones_anticipos_tree</field>
+            <field name="model">liquidaciones.anticipos</field>
+            <field name="arch" type="xml">
+                <list string="Anticipos">
+                    <field name="date"/>
+                    <field name="name"/>
+                    <field name="state" />
+                </list>
+            </field>
+        </record>
+
+        <record id="action_liquidaciones_anticipos" model="ir.actions.act_window">
+            <field name="name">Anticipos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">liquidaciones.anticipos</field>
+            
+        </record>
+
+        <menuitem action="action_liquidaciones_anticipos" id="menu_liquidaciones_anticipos" parent="account.menu_finance_payables"/>
+
+    </data>
+</odoo>

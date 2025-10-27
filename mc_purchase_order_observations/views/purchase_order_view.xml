@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+        <record model="ir.ui.view" id="purchase_order_form_observations">
+            <field name="name">purchase.order.form.observations</field>
+            <field name="model">purchase.order</field>
+            <field name="inherit_id" ref="purchase.purchase_order_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <field name="date_order" position="after">
+                    <field name="observaciones"/>
+                </field>
+            </field>
+        </record>
+	</data>
+</odoo>

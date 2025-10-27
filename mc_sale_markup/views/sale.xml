@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <record id="inherit_view_id_sale_marckup" model="ir.ui.view">
+            <field name="name">Vista Form Sale Markup</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                
+                <xpath expr="//field[@name='order_line']/list/field[@name='analytic_distribution']" position="after">
+                    <field name="markup" />
+                    <field name="standard_price" />
+                </xpath>
+
+            </field>
+        </record>
+    
+    </data>
+    
+
+</odoo>

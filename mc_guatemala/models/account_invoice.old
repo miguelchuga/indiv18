@@ -1,0 +1,33 @@
+# -*- encoding: utf-8 -*-
+from odoo import models, fields, api, _
+from odoo.exceptions import UserError
+from . import util
+
+class account_invoice(models.Model):
+    
+    _name = 'account.invoice'
+    _inherit = 'account.invoice'
+
+    #@api.one
+    def _calcular_letras(self):
+        self.numeros_a_letras =  util.num_a_letras(self.amount_total)
+
+    #@api.one
+    def _calcular_letras_dolar(self):
+        self.numeros_a_letras_dolar =  util.num_a_letras_dolar(self.amount_total)
+
+    serie_gt = fields.Char('Serie de la factura', size=40)
+    numeros_a_letras = fields.Char('Letras', compute=_calcular_letras)
+    numeros_a_letras_dolar = fields.Char('Letras', compute=_calcular_letras_dolar)
+
+class account_invoice_line(models.Model):
+    
+    _name = 'account.invoice.line'
+    _inherit = 'account.invoice.line'
+
+    #@api.one
+    def _n_total_linea(self):
+        self.n_total_linea = self.quantity * self.price_unit
+
+
+    n_total_linea   = fields.Float('Total linea', compute=_n_total_linea)

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <report
+            id="liquidaciones_liquidaciones"
+            string="Liquidación"
+            model="liquidaciones.liquidaciones"
+            report_type="qweb-pdf"
+            file="liquidaciones.reporte_liquidaciones"
+            name="liquidaciones.reporte_liquidaciones"
+        />
+
+    </data>
+</odoo>

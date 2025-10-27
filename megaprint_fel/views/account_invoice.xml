@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="mpfel_account_invoice_form" model="ir.ui.view">
+            <field name="name">mpfel.account.invoice.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//form/header/button[@name='action_post']" position="after">
+
+
+                     <button
+                        name="mpfel_firmar_documento"
+                        string="2 - Firmar FEL"
+                        type="object"
+                        class="oe_highlight"
+                        groups="base.group_system"
+                    />
+
+                    <button
+                        name="mpfel_registrar_documento"
+                        string="3 - Registra FEL"
+                        type="object"
+                        class="oe_highlight"
+                        groups="base.group_system"
+                    />
+                    <button
+                        name="invoice_pdf"
+                        string="Generar PDF"
+                        type="object"
+                        class="oe_highlight"
+                    />
+
+
+                </xpath>
+                <xpath expr="//form//sheet/notebook" position="inside">
+
+                           <page name="mpfel_exp_data" string="EXPORTACION" >
+                                <group>
+                                    <field name="x_nombreconsignatario" />
+                                    <field name="x_direccionconsignatario" />
+                                    <field name="x_incoterms_id" />
+                                    <field name="x_codigoconsignatario" />
+                                    <field name="x_nombrecomprador" />
+                                    <field name="x_direccioncomprador" />
+                                    <field name="x_codigocomprador" />
+                                    <field name="x_otrareferencia" />
+                                    <field name="x_nombreexportador" />
+                                    <field name="x_codigoexportador" />
+                                </group>
+                            </page>
+
+
+
+                    <!--attrs="{'invisible':[('mpfel_uuid', '=', False)]}"-->
+                    <page name="mpfel" string="FEL Data"  >
+                        <notebook name="mpfel_data">
+                            <page name="mpfel_invoice_data" string="FEL Invoice data">
+
+                    <button
+                        name="mpfel_invoice_void"
+                        string="Anular FEL"
+                        type="object"
+                        class="oe_highlight"
+                        invisible="not mpfel_sat_uuid"
+                        groups="account.group_account_invoice"
+                    />
+
+                               <group groups="base.group_system" >
+                                   <field name="mpfel_manual"  />
+                                   <field name="x_exento_total"  />
+                                   <field name="x_gravado_total"  />
+
+                                </group>
+
+                               <!--group  >
+                                   <field name="mpfel_sat_uuid_ndeb" options="{'no_create': True}" />
+                                </group>
+
+                                <group  >
+                                   <field name="mpfel_sat_uuid_ncre" options="{'no_create': True}" />
+                                </group-->
+
+
+                                <group>
+                                   <field name="mpfel_file_name" invisible="1"/>
+                                   <field name="mpfel_pdf" readonly="1" filename="mpfel_file_name"/>
+                                </group>
+                                <group>
+
+                                    <field name="mpfel_uuid" readonly="1"/>
+                                    <field name="mpfel_sat_uuid" readonly="1"/>
+
+                                    <!--field name="x_documento_gface_fel" readonly="1"/-->
+                                    <field name="numeros_a_letras_fel" readonly="1"/>
+
+                                    <field name="mpfel_serial" readonly="1"/>
+                                    <field name="mpfel_number" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="date_sign" readonly="1"/>
+                                    <field name="mpfel_sign_date" readonly="1"/>
+                                    <field name="mpfel_source_xml"  />
+                                    <field name="mpfel_signed_xml" readonly="1"/>
+                                    <field name="mpfel_result_xml" readonly="1"/>
+                                </group>
+                            </page>
+                            <page name="mpfel_void_data" string="FEL Void data" >
+                                <group>
+                                    <field name="mpfel_void_uuid" readonly="1"/>
+                                    <field name="mpfel_void_sat_uuid" readonly="1"/>
+                                </group>
+                                <group>
+                                    <field name="mpfel_void_source_xml" readonly="1"/>
+                                    <field name="mpfel_void_signed_xml" readonly="1"/>
+                                    <field name="mpfel_void_result_xml" readonly="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </page>
+                </xpath>
+
+            </field>
+
+        </record>
+
+
+
+        <!--record id="view_account_move_line_tax" model="ir.ui.view">
+            <field name="name">account.move.line.tax.form.inherit</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page/field[@name='invoice_line_ids']/tree/field[@name='price_subtotal']" position="before">
+                    <field name="tax_par_line" readonly='1'/>
+                </xpath>
+            </field>
+        </record-->
+
+
+
+
+
+
+
+    </data>
+</odoo>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="mpfel_view_account_journal_form" model="ir.ui.view">
+            <field name="name">mpfel.account.journal.form</field>
+            <field name="model">account.journal</field>
+            <field name="inherit_id" ref="account.view_account_journal_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form//sheet/group/group[1]" position="inside">
+                    <field name="mpfel_type"/>
+                    <field name="mpfel_exportacion"/>
+                    <field name="mpfel_previous_authorization"/>
+                    <field name="mpfel_previous_serial"/>
+                    <field name="ws_url_pdf"/>
+                    <field name="infilefel_establishment_code"/>
+                    <field name="infilefel_comercial_name"/>
+                    <field name="infilefel_establishment_street"/>
+                    <field name="infilefel_phone_number"/>
+                    <field name="frase_xml"/>
+
+
+                    <field name="nit_certificador"/>
+                    <field name="nombre_certificador"/>
+                    <field name="frase_certificador"/>
+
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

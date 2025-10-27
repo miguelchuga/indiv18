@@ -1,0 +1,75 @@
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="mc_guatemala.liquidaciones_treeview">
+            <field name="name">mc_guatemala.liquidaciones.treeview</field>
+            <field name="model">mc_guatemala.liquidaciones_mc</field>
+            <field name="arch" type="xml">
+                <tree string="Liquidaciones">
+                    <field name="name"/>
+                    <field name="date"/>
+                    <field name="partner_id"/>
+                    <field name="observaciones"/>
+
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="mc_guatemala_liquidaciones_view">
+            <field name="name">mc_guatemala.liquidaciones.view</field>
+            <field name="model">mc_guatemala.liquidaciones_mc</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Liquidaciones">
+                    <header>
+                        <button name="aceptada" string="Aceptada" type="object" class="oe_highlight"
+        					attrs="{'invisible': ['|',('state','=','draft'), ]}"/>
+
+                        <button name="liquidada" string="Liquidada" type="object" class="oe_highlight"
+        					attrs="{'invisible': ['|',('state','in',['draf']),]}"/>
+
+                    	<button name="concilia_apuntes" string="Concilia" type="object" ></button>
+
+                        <field name="state" widget="statusbar" statusbar_colors='{"draft":"green","aceptada":"red","liquidada":"black"}' readonly="1"/>
+                    </header>
+
+                    <sheet>
+                        <label for="name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" required="1"/>
+                        </h1>
+                        <group>
+                            <field name="date"/>
+                            <field name="partner_id"/>
+                            <field name="facturas_ids" readonly="1"/>
+                            <field name="cheques_ids" readonly="1"/>
+                            <field name="move_ids" readonly="1"/>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter" >
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="mc_guatemala_liquidaciones_action_window" model="ir.actions.act_window">
+            <field name="name">Liquidaciones</field>
+            <field name="res_model">mc_guatemala.liquidaciones_mc</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="mc_guatemala.liquidaciones_treeview"/>
+        </record>
+
+        <menuitem
+            id="mc_guatemala_liquidaciones_menu"
+            name="Liquidaciones"
+            parent="account.menu_finance_entries"
+            sequence="10"
+            action="mc_guatemala_liquidaciones_action_window"
+        />
+
+    </data>
+</openerp>

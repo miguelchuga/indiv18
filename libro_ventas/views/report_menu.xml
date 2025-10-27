@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+    <report
+        id="report_libroventas_xlsx"
+        string="Libro Ventas Excel"
+        model="mc_libro_ventas.mc_libro_ventas"
+        report_type="xlsx"
+        name="libro_ventas.report_libroventas_xls"
+        file="libro_ventas.report_libroventas_xls"
+    />
+
+</odoo>

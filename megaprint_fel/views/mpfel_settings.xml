@@ -1,0 +1,90 @@
+
+<openerp>
+    <data>
+
+
+ 		<record model="ir.ui.view" id="mpfel_settings_view_treeview">
+            <field name="name">mpfel_settings_view_treeview</field>
+            <field name="model">mpfel.settings</field>
+            <field name="arch" type="xml">
+                <list string="Megaprint FEL settings" >
+                    <field name="company_id"/>
+                    <field name="ws_url_token"/>
+                    <field name="ws_url_document"/>
+                    <field name="ws_url_void"/>
+                    <field name="ws_url_pdf"/>
+                </list>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="mpfel_settings_view">
+            <field name="name">Megaprint FEL settings</field>
+            <field name="model">mpfel.settings</field>
+            <field name="arch" type="xml">
+                <form string="Megaprint FEL settings Multi">
+                    <header>
+                        <button string="Get token" type="object" name="get_token2" class="oe_highlight"/>
+                    </header>
+                       <group string="PROVEEDOR">
+                           <field name="company_id"/>
+                           <field name="provider"/>
+                        </group>
+
+                        <group string="STRING DE CONEXION">
+                            <field name="ws_url_document"/>
+                            <field name="ws_url_void"/>
+                            <field name="ws_url_signer" />
+                        </group>
+                       <group string="MEGAPRINT">
+                            <field name="ws_url_token"/>
+
+                            <field name="api_key"/>
+                            <field name="token" readonly="1"/>
+                            <field name="token_due_date" readonly="1"/>
+                            <field name="megaprint_vat"/>
+                            <field name="certificate_file"/>
+                            <field name="path_xml"/>
+                            <field name="certificate_password"/>
+                        </group>
+
+                        <group string="INFILE">
+                             <field name="sign_user"/>
+                             <field name="sign_key"/>
+                             <field name="certification_key"/>
+                             <field name="infile_vat"/>
+                        </group>
+                    <group string="CONFIGURACIONES VARIAS">
+                            <field name="ws_timeout"/>
+                            <field name="user"/>
+                            <field name="organization_code"/>
+                            <field name="vat_affiliation"/>
+                            <field name="isr_scenery"/>
+                            <field name="isr_phrases"/>
+                            <field name="excempt_scenery"/>
+                            <field name="nit_certificador"/>
+                            <field name="nombre_certificador"/>
+                            <field name="frase_certificador"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+
+        <record id="mpfel_settings_view_action" model="ir.actions.act_window">
+            <field name="name">Megaprint FEL settings</field>
+            <field name="res_model">mpfel.settings</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="mpfel_settings_view_treeview"/>
+        </record>
+
+        <menuitem
+            id="mpfel_settings_menu"
+            name="Megaprint FEL settings"
+            parent="account.menu_finance_configuration"
+            sequence="500"
+            action="mpfel_settings_view_action"
+        />
+
+    </data>
+</openerp>

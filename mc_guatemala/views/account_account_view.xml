@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+    	<!--record id="account_inherit_form_mc" model="ir.ui.view">
+        	<field name="name">account.inherit.form_mc</field>
+         	<field name="model">account.account</field>
+	     	<field name="inherit_id" ref="account.view_account_form"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//group//group//field[@name='deprecated']"  position="after"> 
+                	<separator string="Configuración para libro de compras Local" colspan="4"/>
+       	        	<field name="compras_locales"/>
+       	            <field name="compras_importaciones"/>
+       	            <field name="impuesto_iva"/>
+       	            <field name="impuesto_exentos"/>
+                    <separator string="Configuración para libro de ventas Local" colspan="4"/>
+       	            <field name="ventas_locales"/>
+       	            <field name="ventas_exportacion"/>
+       	            <field name="ventas_impuesto_iva"/>
+       	            <field name="ventas_impuesto_exentos"/>
+       	            <field name="ventas_base_imponible"/>
+                </xpath>
+         	</field>
+    	</record-->
+
+
+    	<record id="account_inherit_analityc_form_mc" model="ir.ui.view">
+        	<field name="name">account.inherit.nalityc.form_mc</field>
+         	<field name="model">account.analytic.account</field>
+	     	<field name="inherit_id" ref="analytic.view_account_analytic_account_form"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//group//group//field[@name='partner_id']"  position="after"> 
+       	            <field name="nombre"/>
+                </xpath>
+         	</field>
+    	</record>
+
+
+	</data>
+</openerp>

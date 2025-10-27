@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="invoice_supplier_form_liquidaciones" model="ir.ui.view">
+            <field name="name">liquidaciones.invoice.form</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+
+                <field name="ref" position="after">
+                    <field name="liquidaciones_id" domain="[('asiento','=',False)]"/>
+                    <!--field name="anticipo_id"/-->
+                </field>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="tiene_vat" model="ir.config_parameter">
+            <field name="key">neo</field>
+            <field name="value">False</field>
+        </record>
+        <record id="tiene_pos" model="ir.config_parameter">
+           <field name="key">pos</field>
+           <field name="value">False</field>
+        </record>
+        <!--solo para neo-->
+        <record id="con_generico" model="ir.config_parameter">
+           <field name="key">generico</field>
+           <field name="value">False</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,508 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* megaprint_fel
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 10.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-06-08 01:49+0000\n"
+"PO-Revision-Date: 2019-06-07 19:51-0600\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es_GT\n"
+"X-Generator: Poedit 2.2.3\n"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_default_api_key
+msgid "API Key"
+msgstr "Clave de API"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_api_key
+msgid "API key"
+msgstr "Clave de API"
+
+#. module: megaprint_fel
+#: model:ir.ui.view,arch_db:megaprint_fel.mpfel_settings_view
+msgid "Apply"
+msgstr "Aplicar"
+
+#. module: megaprint_fel
+#: model:ir.ui.view,arch_db:megaprint_fel.mpfel_settings_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_default_certificate_file
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_certificate_file
+msgid "Certificate file"
+msgstr "Archivo de certificado"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_default_certificate_password
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_certificate_password
+msgid "Certificate password"
+msgstr "Contraseña de certificado"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_create_uid
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_create_date
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_display_name
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_account_invoice_mpfel_uuid
+msgid "Document UUID"
+msgstr "UUID de documento"
+
+#. module: megaprint_fel
+#: code:addons/megaprint_fel/models/mpfel_settings.py:86
+#, python-format
+msgid "Document is already signed"
+msgstr "El documento ya está firmado"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_default_ws_url_document
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_ws_url_document
+msgid "Document web service URL"
+msgstr "URL base de servicio web"
+
+#. module: megaprint_fel
+#: selection:mpfel.config.settings,default_vat_affiliation:0
+#: selection:mpfel.settings,vat_affiliation:0
+msgid "EXE"
+msgstr "EXE"
+
+#. module: megaprint_fel
+#: code:addons/megaprint_fel/models/mpfel_settings.py:379
+#: code:addons/megaprint_fel/models/mpfel_settings.py:518
+#, python-format
+msgid "Error signing document: {}"
+msgstr "Error al firmar documento: {}"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_default_excempt_scenery
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_excempt_scenery
+msgid "Excempt scenery"
+msgstr "Escenario exentos"
+
+#. module: megaprint_fel
+#: selection:account.journal,mpfel_type:0
+msgid "FACT"
+msgstr "FACT"
+
+#. module: megaprint_fel
+#: selection:account.journal,mpfel_type:0
+msgid "FCAM"
+msgstr "FCAM"
+
+#. module: megaprint_fel
+#: selection:account.journal,mpfel_type:0
+msgid "FCAP"
+msgstr "FCAP"
+
+#. module: megaprint_fel
+#: model:ir.ui.view,arch_db:megaprint_fel.mpfel_account_invoice_form
+msgid "FEL Data"
+msgstr "Datos FEL"
+
+#. module: megaprint_fel
+#: model:ir.ui.view,arch_db:megaprint_fel.mpfel_account_invoice_form
+msgid "FEL Invoice data"
+msgstr "Datos FEL de factura"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_account_journal_mpfel_type
+msgid "FEL Invoice type"
+msgstr "Tipo de factura FEL"
+
+#. module: megaprint_fel
+#: model:ir.ui.view,arch_db:megaprint_fel.mpfel_account_invoice_form
+msgid "FEL Void data"
+msgstr "Datos FEL de anulación"
+
+#. module: megaprint_fel
+#: selection:account.journal,mpfel_type:0
+msgid "FESP"
+msgstr "FESP"
+
+#. module: megaprint_fel
+#: selection:account.journal,mpfel_type:0
+msgid "FPEQ"
+msgstr "FPEQ"
+
+#. module: megaprint_fel
+#: selection:mpfel.config.settings,default_vat_affiliation:0
+#: selection:mpfel.settings,vat_affiliation:0
+msgid "GEN"
+msgstr "GEN"
+
+#. module: megaprint_fel
+#: model:ir.ui.view,arch_db:megaprint_fel.mpfel_settings_view
+msgid "Get token"
+msgstr "Obtener token"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_id
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_id
+msgid "ID"
+msgstr "ID"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_default_isr_phrases
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_isr_phrases
+msgid "ISR phrases"
+msgstr "Frases ISR"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_isr_scenery
+msgid "ISR sceneries"
+msgstr "Escenarios ISR"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_default_isr_scenery
+msgid "ISR scenery"
+msgstr "Escenario ISR"
+
+#. module: megaprint_fel
+#: model:ir.model,name:megaprint_fel.model_account_invoice
+msgid "Invoice"
+msgstr "Factura"
+
+#. module: megaprint_fel
+#: model:ir.model,name:megaprint_fel.model_account_journal
+msgid "Journal"
+msgstr "Diario"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings___last_update
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings___last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_write_uid
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_write_uid
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_write_date
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_write_date
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: megaprint_fel
+#: code:addons/megaprint_fel/models/mpfel_settings.py:663
+#, python-format
+msgid "MPFEL Errors {}"
+msgstr "Errores MPFEL {}"
+
+#. module: megaprint_fel
+#: code:addons/megaprint_fel/models/mpfel_settings.py:428
+#, python-format
+msgid "MPFEL Signer: {}"
+msgstr "Firmador MPFEL: {}"
+
+#. module: megaprint_fel
+#: code:addons/megaprint_fel/models/mpfel_settings.py:68
+#: code:addons/megaprint_fel/models/mpfel_settings.py:426
+#: code:addons/megaprint_fel/models/mpfel_settings.py:562
+#: code:addons/megaprint_fel/models/mpfel_settings.py:675
+#, python-format
+msgid "MPFEL: API key not set"
+msgstr "MPFEL: No se encontró llave de API"
+
+#. module: megaprint_fel
+#: code:addons/megaprint_fel/models/mpfel_settings.py:66
+#: code:addons/megaprint_fel/models/mpfel_settings.py:424
+#: code:addons/megaprint_fel/models/mpfel_settings.py:560
+#: code:addons/megaprint_fel/models/mpfel_settings.py:650
+#, python-format
+msgid "MPFEL: Error consuming web service: {}"
+msgstr "MPFEL: Error al consumir servicio web: {}"
+
+#. module: megaprint_fel
+#: code:addons/megaprint_fel/models/mpfel_settings.py:410
+#: code:addons/megaprint_fel/models/mpfel_settings.py:546
+#, python-format
+msgid "MPFEL: Response error consuming web service: {}"
+msgstr "MPFEL: Error en respuesta al consumir servicio web: {}"
+
+#. module: megaprint_fel
+#: code:addons/megaprint_fel/models/mpfel_settings.py:371
+#: code:addons/megaprint_fel/models/mpfel_settings.py:510
+#, python-format
+msgid "MPFEL: Signed XML file not found"
+msgstr "MPFEL: No se encontró archivo XML firmado"
+
+#. module: megaprint_fel
+#: code:addons/megaprint_fel/models/mpfel_settings.py:430
+#: code:addons/megaprint_fel/models/mpfel_settings.py:564
+#, python-format
+msgid "MPFEL: Token expired"
+msgstr "MPFEL: Token expirado"
+
+#. module: megaprint_fel
+#: code:addons/megaprint_fel/models/mpfel_settings.py:432
+#: code:addons/megaprint_fel/models/mpfel_settings.py:566
+#, python-format
+msgid "MPFEL: Token not set"
+msgstr "MPFEL: Token no especificado"
+
+#. module: megaprint_fel
+#: code:addons/megaprint_fel/models/mpfel_settings.py:70
+#: code:addons/megaprint_fel/models/mpfel_settings.py:677
+#, python-format
+msgid "MPFEL: User not set"
+msgstr "MPFEL: Usuario no especificado"
+
+#. module: megaprint_fel
+#: code:addons/megaprint_fel/models/mpfel_settings.py:72
+#: code:addons/megaprint_fel/models/mpfel_settings.py:679
+#, python-format
+msgid "MPFEL: Web service URL for tokens not set"
+msgstr "MPFEL: URL de servicio web para tokens no se ha configurado"
+
+#. module: megaprint_fel
+#: model:ir.ui.view,arch_db:megaprint_fel.mpfel_settings_view
+msgid "Megaprint FEL Settings"
+msgstr "Configuraciones Megaprint FEL"
+
+#. module: megaprint_fel
+#: model:ir.actions.act_window,name:megaprint_fel.mpfel_settings_action_window
+#: model:ir.model,name:megaprint_fel.model_mpfel_settings
+#: model:ir.ui.menu,name:megaprint_fel.mpfel_settings_menu
+#: model:ir.ui.view,arch_db:megaprint_fel.mpfel_settings_view
+msgid "Megaprint FEL settings"
+msgstr "Configuraciones Megaprint FEL"
+
+#. module: megaprint_fel
+#: model:ir.model,name:megaprint_fel.model_mpfel_config_settings
+msgid "Megaprint FEL settings configurator"
+msgstr "Configuraciones Megaprint FEL"
+
+#. module: megaprint_fel
+#: code:addons/megaprint_fel/models/account_invoice.py:27
+#, python-format
+msgid "Megaprint FEL settings not found"
+msgstr "No se encontraron configuraciones Megaprint FEL"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_default_megaprint_vat
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_megaprint_vat
+msgid "Megaprint VAT"
+msgstr "NIT Megaprint"
+
+#. module: megaprint_fel
+#: code:addons/megaprint_fel/models/mpfel_settings.py:88
+#: code:addons/megaprint_fel/models/mpfel_settings.py:446
+#, python-format
+msgid "Missing document date"
+msgstr "No se ha especificado fecha del documento"
+
+#. module: megaprint_fel
+#: selection:account.journal,mpfel_type:0
+msgid "NABN"
+msgstr "NABN"
+
+#. module: megaprint_fel
+#: selection:account.journal,mpfel_type:0
+msgid "NCRE"
+msgstr "NCRE"
+
+#. module: megaprint_fel
+#: selection:account.journal,mpfel_type:0
+msgid "NDEB"
+msgstr "NDEB"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_default_organization_code
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_organization_code
+msgid "Organization code"
+msgstr "Código de establecimiento"
+
+#. module: megaprint_fel
+#: selection:mpfel.config.settings,default_vat_affiliation:0
+#: selection:mpfel.settings,vat_affiliation:0
+msgid "PEQ"
+msgstr "PEQ"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_account_journal_mpfel_previous_authorization
+msgid "Previous invoice authorization"
+msgstr "Autorización de facturas anterior"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_account_journal_mpfel_previous_serial
+msgid "Previous invoice serial"
+msgstr "Serie de facturas anterior"
+
+#. module: megaprint_fel
+#: selection:account.journal,mpfel_type:0
+msgid "RDON"
+msgstr "RDON"
+
+#. module: megaprint_fel
+#: selection:account.journal,mpfel_type:0
+msgid "RECI"
+msgstr "RECI"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_account_invoice_mpfel_result_xml
+msgid "Result XML"
+msgstr "XML Resultado"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_account_tax_mpfel_sat_code
+msgid "SAT Code"
+msgstr "Código SAT"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_account_invoice_mpfel_sat_uuid
+msgid "SAT UUID"
+msgstr "UUID SAT"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_account_invoice_mpfel_sign_date
+msgid "Sign date"
+msgstr "Fecha de firma"
+
+#. module: megaprint_fel
+#: selection:mpfel.config.settings,default_signing_type:0
+#: selection:mpfel.settings,signing_type:0
+msgid "Sign documents using Web Service"
+msgstr "Firmar documentos mediante servicio Web"
+
+#. module: megaprint_fel
+#: selection:mpfel.config.settings,default_signing_type:0
+#: selection:mpfel.settings,signing_type:0
+msgid "Sign documents using local program"
+msgstr "Firmar documentos utilizando programa local"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_account_invoice_mpfel_signed_xml
+msgid "Signed XML"
+msgstr "XML firmado"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_default_signer_location
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_signer_location
+msgid "Signer program location"
+msgstr "Ubicación de programa generador de firmas"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_default_ws_url_signer
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_ws_url_signer
+msgid "Signer web service URL"
+msgstr "URL de servicio web para firmar documento"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_default_signing_type
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_signing_type
+msgid "Signing type"
+msgstr "Tipo de firma"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_account_invoice_mpfel_source_xml
+msgid "Source XML"
+msgstr "XML origen"
+
+#. module: megaprint_fel
+#: model:ir.model,name:megaprint_fel.model_account_tax
+msgid "Tax"
+msgstr "Impuesto"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_default_token
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_token
+msgid "Token"
+msgstr "Token"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_default_token_due_date
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_token_due_date
+msgid "Token due date"
+msgstr "Vencimiento de token"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_default_ws_url_token
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_ws_url_token
+msgid "Token web service URL"
+msgstr "URL de servicio web de token"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_default_user
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_user
+msgid "User"
+msgstr "Usuario"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_default_vat_affiliation
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_vat_affiliation
+msgid "VAT affiliation"
+msgstr "Afiliación IVA"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_account_invoice_mpfel_void_sat_uuid
+msgid "Void SAT UUID"
+msgstr "UUID anulación SAT"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_account_invoice_mpfel_void_uuid
+msgid "Void document UUID"
+msgstr "UUID anulación de documento"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_default_ws_url_void
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_ws_url_void
+msgid "Void document web service URL"
+msgstr "URL de servicio web de anulación"
+
+#. module: megaprint_fel
+#: model:ir.ui.view,arch_db:megaprint_fel.mpfel_account_invoice_form
+msgid "Void invoice"
+msgstr "Anular factura"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_account_invoice_mpfel_void_result_xml
+msgid "Void result XML"
+msgstr "XML resultado anulación"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_account_invoice_mpfel_void_signed_xml
+msgid "Void signed XML"
+msgstr "XML firmado de anulación"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_account_invoice_mpfel_void_source_xml
+msgid "Void source XML"
+msgstr "XML fuente de anulación"
+
+#. module: megaprint_fel
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_config_settings_default_ws_timeout
+#: model:ir.model.fields,field_description:megaprint_fel.field_mpfel_settings_ws_timeout
+msgid "Web service timeout"
+msgstr "Timeout de servicio web"
+
+#. module: megaprint_fel
+#: model:ir.ui.view,arch_db:megaprint_fel.mpfel_settings_view
+msgid "or"
+msgstr "o"

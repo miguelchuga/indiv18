@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_liquidaciones_liquidaciones_form" model="ir.ui.view">
+            <field name="name">view_liquidaciones_liquidaciones_form</field>
+            <field name="model">liquidaciones.liquidaciones</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Liquidaciones">
+                    <header>
+                        <button name="conciliar" string="Conciliar" type="object" />
+                        <button name="cancelar" string="Abrir" type="object" />
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="diario"/>
+                                <field name="company_id"/>
+                                <field name="total_facturas"  />
+                                <field name="total_asientos"  />
+                                <field name="total_cheques"  />
+                                <field name="total_descuadre"  />
+                            </group>
+                            <group>
+                                <field name="fecha"/>
+                                <field name="usuario_id"/>
+                                <field name="cuenta_desajuste"/>
+                                <field name="asiento" />
+                            </group>
+                        </group>
+                        <field name="facturas" readonly="True"/>
+                        <field name="cheques" readonly="True"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_liquidaciones_liquidaciones_tree" model="ir.ui.view">
+            <field name="name">view_liquidaciones_liquidaciones_tree</field>
+            <field name="model">liquidaciones.liquidaciones</field>
+            <field name="arch" type="xml">
+                <list string="liquidaciones">
+                    <field name="fecha"/>
+                    <field name="name"/>
+                    <field name="state" />
+                </list>
+            </field>
+        </record>
+
+        <record id="action_liquidaciones_liquidaciones" model="ir.actions.act_window">
+            <field name="name">Liquidaciones</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">liquidaciones.liquidaciones</field>
+            
+        </record>
+
+        <menuitem action="action_liquidaciones_liquidaciones" id="menu_liquidaciones_liquidaciones" parent="account.menu_finance_payables"/>
+
+    </data>
+</odoo>

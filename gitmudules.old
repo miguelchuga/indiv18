@@ -1,0 +1,19 @@
+[submodule "miguelchuga/ninja14"]
+	path = miguelchuga/ninja14
+	url = git@github.com:miguelchuga/ninja14.git
+	branch = main
+
+[submodule "OCA/server-tools"]
+	path = OCA/server-tools
+	url = git@github.com:OCA/server-tools.git
+	branch = 14.0
+
+[submodule "miguelchuga/ninja14"]
+	path = miguelchuga/ninja14
+	url = git@github.com:miguelchuga/ninja14.git
+	branch = main
+
+[submodule "OCA/server-tools"]
+	path = OCA/server-tools
+	url = git@github.com:OCA/server-tools.git
+	branch = 14.0
