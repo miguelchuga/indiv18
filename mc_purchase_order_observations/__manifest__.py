@@ -4,9 +4,11 @@
     'name': 'Agregar campo Observaciones a Purchase Order.',
     'version': '2.0.0',
     'author': 'MC-Sistemas',
+    'license': "AGPL-3",
     'summary': 'Agregar campo Observaciones a Órdenes de Compra.',
     'description' : """
 ========================
+
 - Odoo para Guatemala
 ========================
     """,
