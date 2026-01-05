@@ -6,6 +6,7 @@
     'author': "Erik Yol",
     'website': "http://",
     'category': 'Sale',
+    'license': "AGPL-3",
     'version': '0.1',
     'depends': ['base','sale'],
     'data': [

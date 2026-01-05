@@ -7,6 +7,7 @@
     'description': """Manejo de cajas chicas y liquidaciones version 2""",
     'author': '',
     'website': '',
+    'license': "AGPL-3",
     'depends' : [ 'account','account_accountant' ],
     'data' : [
         'views/liquidacion_view.xml',
