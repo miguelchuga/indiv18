@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.report" id="action_report_libro_diario">
+            <field name="name">Libro Diario</field>
+            <field name="model">libro.diario</field>
+            <field name="report_libreoffice">True</field>
+            <field name="output_file">pdf</field>
+            <field name="report_name">LibroDiario</field>
+            <field name="print_report_name">'Diario - %s' % (object.name)</field>
+            <field name="binding_model_id" ref="mc_reporte_libros_contables.model_libro_diario"/>
+            <field name="binding_type">report</field>
+            <field name="template_id" ref="mc_template_odt.libro_diario"/>
+            <field name="url_theme_screenshot">mc_template_odt/static/src/img/libro_diario.png</field>
+        </record>
+        <record model="ir.actions.report" id="action_report_libro_mayor">
+            <field name="name">Libro Mayor</field>
+            <field name="model">libro.mayor</field>
+            <field name="report_libreoffice">True</field>
+            <field name="output_file">pdf</field>
+            <field name="report_name">LibroMayor</field>
+            <field name="print_report_name">'Mayor - %s' % (object.name)</field>
+            <field name="binding_model_id" ref="mc_reporte_libros_contables.model_libro_mayor"/>
+            <field name="binding_type">report</field>
+            <field name="template_id" ref="mc_template_odt.libro_mayor"/>
+            <field name="url_theme_screenshot">mc_template_odt/static/src/img/libro_diario.png</field>
+        </record>
+        <record model="ir.actions.report" id="action_report_libro_compras">
+            <field name="name">Libro Compras</field>
+            <field name="model">mc_libro_compras.mc_libro_compras</field>
+            <field name="report_libreoffice">True</field>
+            <field name="output_file">pdf</field>
+            <field name="report_name">LibroCompras</field>
+            <field name="print_report_name">'Compras - %s' % (object.name)</field>
+            <field name="binding_model_id" ref="mc_libro_compras.model_mc_libro_compras_mc_libro_compras"/>
+            <field name="binding_type">report</field>
+            <field name="template_id" ref="mc_template_odt.libro_compras"/>
+            <field name="url_theme_screenshot">mc_template_odt/static/src/img/libro_diario.png</field>
+        </record> 
+
+
+        <record model="ir.actions.report" id="action_report_libro_ventas">
+            <field name="name">Libro Ventas</field>
+            <field name="model">mc_libro_ventas.mc_libro_ventas</field>
+            <field name="report_libreoffice">True</field>
+            <field name="output_file">pdf</field>
+            <field name="report_name">LibroVentas</field>
+            <field name="print_report_name">'ventas - %s' % (object.name)</field>
+            <field name="binding_model_id" ref="mc_libro_ventas.model_mc_libro_ventas_mc_libro_ventas"/>
+            <field name="binding_type">report</field>
+            <field name="template_id" ref="mc_template_odt.libro_ventas"/>
+            <field name="url_theme_screenshot">mc_template_odt/static/src/img/libro_diario.png</field>
+        </record> 
+    </data>
+</odoo>
