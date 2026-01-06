@@ -294,7 +294,7 @@ class MCLibroCompras(models.Model):
 
             for l in invoice_id.invoice_line_ids:
 
-                invoice_line_id = self.env['account.move.line'].browse([ l.id ])
+                invoice_line_id = l #self.env['account.move.line'].browse([ l.id ])
 
                 precio_subtotal = abs(invoice_line_id.balance ) #invoice_line_id.price_subtotal
 
@@ -433,9 +433,12 @@ class MCLibroCompras(models.Model):
           
             # Separa el iva de locales e importaciones.
             total_gravado = 0
+            total_exentos = 0
             total_gravado_importacion = 0
             total_gravado_importacion = ( _importacion_bienes_gravados * sign)+(_importacion_servicios_gravados * sign)
             total_gravado = (_local_bienes_gravados * sign)+(_local_bienes_gravados_combustible * sign)+(_local_servicios_gravados * sign)
+            total_exentos = (_local_bienes_exentos+_local_servicios_exentos+_importacion_bienes_exentos+_importacion_servicios_exentos)
+
             if total_gravado != 0:
                 _iva_local = (_iva * sign)
             if total_gravado_importacion != 0:
@@ -485,7 +488,7 @@ class MCLibroCompras(models.Model):
                 'iva_local': _iva_local, 
                 'iva_importacion': _iva_importacion, 
 
-                'total': (_total + _retension_iva + _retension_isr+_suma_iva) * sign,
+                'total': ((_total + _retension_iva + _retension_isr+_suma_iva)-total_exentos)     * sign,
                 
                 'otra_moneda': _otra_moneda * sign,
                 'base': (_local_bienes_gravados + _local_bienes_gravados_combustible + _local_servicios_gravados) * sign

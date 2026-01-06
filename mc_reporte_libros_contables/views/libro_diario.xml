@@ -1,0 +1,113 @@
+<odoo>
+  <data>
+
+    <!-- libro.diario form view -->
+    <record id="libro_diario_view_form" model="ir.ui.view">
+      <field name="name">libro_diario_view_form</field>
+      <field name="model">libro.diario</field>
+      <field name="arch" type="xml">
+        <form string="Libro Diario">
+          <header>
+            <button name="generar_libro" type="object" string="Generar" class="oe_highlight" />
+            <button name="imprimir" type="object" string="Generar excel" class="oe_highlight" />
+            <button name="foliar" type="object" string="Foliar Libro" class="oe_highlight" />
+          </header>
+          <sheet>
+              <label for="name" class="oe_edit_only"/>
+              <h1>
+                  <field name="name"/>
+              </h1>
+              <group>              
+                <field name="fecha_inicio"/>
+                <field name="fecha_final"/>
+                <field name="company_id" required="1"/>
+                <!--field name="account_id" /-->
+
+                <field name="folio" required="1"/>
+                <field name="nombre_archivo" invisible="1"/>
+                <field name="file_xlsx" readonly="1" filename="nombre_archivo"/>
+                <field name="file_name" invisible="1"/>
+                <field name="file_pdf" readonly="1" filename="file_name"/>
+            </group>
+ 
+                                
+                                            <notebook>
+              <page string="Detalle" name="detalle">
+                  <field name="libro_line">
+                    <list options="{'no_create': True}" string="Libro Diario Detalle">
+                      <field name="code"/>
+                      <field name="account"/>                      
+                      <!--field name="poliza"/-->
+                      <field name="documento"/>
+                      <field name="date"/>
+                      <field name="concepto"/>
+                      <field name="debit"/>
+                      <field name="credit"/>
+                      <!--field name="total"/-->
+                    </list>
+                  </field>
+              </page>
+            </notebook>
+    <group name="studio_group_543_1ia20g0sb">
+      <group name="studio_group_543_left"/>
+      <group name="studio_group_543_right">
+        <field name="total_debit"/>
+        <field name="total_credit"/>
+      </group>
+    </group>
+
+
+          </sheet> 
+                               <chatter open_attachments="True"/>
+
+        </form>
+      </field>
+    </record>
+
+    <!-- libro.diario list view -->
+    <record id="libro_diario_view_tree" model="ir.ui.view">
+      <field name="name">libro_diario_view_tree</field>
+      <field name="model">libro.diario</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="fecha_inicio"/>
+          <field name="fecha_final"/>
+        </list>
+      </field>
+    </record>
+
+    <!-- libro.diario action window -->
+    <record id="libro_diario_name_action" model="ir.actions.act_window">
+      <field name="name">Libro Diario</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">libro.diario</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem
+    id="libro_diario_menu"
+    name="Libro Diario"
+    parent="account.menu_finance_reports"
+    sequence="14"
+    action="libro_diario_name_action"/>
+
+
+
+    <!-- libro.diario action window -->
+    <record id="libro_polizas_name_action" model="ir.actions.act_window">
+      <field name="name">Polizas</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">mc.poliza_diarios</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem
+    id="polizas_menu"
+    name="Polizas"
+    parent="account.account_account_menu"
+    sequence="115"
+    action="libro_polizas_name_action"/>
+
+  </data>
+</odoo>

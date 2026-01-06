@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+"access_libro_mayor","libro.mayor","model_libro_mayor",,1,1,1,1
+"access_libro_mayor_detalle","libro.mayor.detalle","model_libro_mayor_detalle",,1,1,1,1
+"access_libro_mayor_detalle_temporal","libro.mayor.detalle_temporal","model_libro_mayor_detalle_temporal",,1,1,1,1
+"access_libro_diario","libro.diario","model_libro_diario",,1,1,1,1
+"access_libro_diario_detalle","libro.diario.detalle","model_libro_diario_detalle",,1,1,1,1
+"access_mc_poliza","mc.poliza_diarios","model_mc_poliza_diarios",,1,1,1,1
