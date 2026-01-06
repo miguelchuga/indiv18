@@ -1,0 +1,91 @@
+<odoo>
+  <data>
+
+      <record model='ir.ui.view' id='wizard_libro_diario_form'>
+          <field name="name">wizard.libro.diario.form</field>
+          <field name="model">wizard.libro.diario</field>
+          <field name="arch" type="xml">
+              <form string="Wizard">
+                  <group string="Select report parameters">
+                      <field name="date_from" required="1"/>
+                      <field name="date_to" required="1"/>
+                      <field name="company_id" required="1"/>
+                  </group>
+                  <footer>
+                      <button name="export_xls" type="object" default_focus="1"
+                              string="Generar Reporte" class="oe_highlight"
+                              context="{'xls_export':1}" icon="fa-download"/>
+                      or
+                      <button string="Cancel" class="oe_link" special="cancel" />
+                  </footer>
+              </form>
+          </field>
+      </record>
+
+      <record model='ir.actions.act_window' id='wizard_libro_diario'>
+        <field name="name">Libro Diaro</field>
+        <field name="res_model">wizard.libro.diario</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizard_libro_diario_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <report
+      id="libro_diario_xlsx"
+      model="report.mc_reportes_xlsx_libros_contables.libro_diario_xlsx.xlsx"
+      string="Report Xlsx"
+      report_type="xlsx"
+      name="mc_reportes_xlsx_libros_contables.libro_diario_xlsx.xlsx"
+      file="mc_reportes_xlsx_libros_contables.libro_diario_xlsx.xlsx"
+      attachment_use="False"
+    />
+
+    <menuitem name="Libro Diario Excel" parent="account.menu_finance_reports" id="lib_diario_rep_excel" action="wizard_libro_diario" sequence="10"/>
+
+
+
+    <record model='ir.ui.view' id='wizard_libro_mayor_form'>
+        <field name="name">wizard.libro.mayor.form</field>
+        <field name="model">wizard.libro.mayor</field>
+        <field name="arch" type="xml">
+            <form string="Wizard">
+                <group string="Select report parameters">
+                    <field name="date_from" required="1"/>
+                    <field name="date_to" required="1"/>
+                    <field name="company_id" required="1"/>                
+                </group>
+                <footer>
+                    <button name="export_xls" type="object" default_focus="1"
+                            string="Generar Reporte" class="oe_highlight"
+                            context="{'xls_export':1}" icon="fa-download"/>
+                    or
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record model='ir.actions.act_window' id='wizard_libro_mayor'>
+      <field name="name">Libro Mayor</field>
+      <field name="res_model">wizard.libro.mayor</field>
+      <field name="view_mode">form</field>
+      <field name="view_id" ref="wizard_libro_mayor_form"/>
+      <field name="target">new</field>
+  </record>
+
+  <report
+    id="libro_mayor_xlsx"
+    model="report.mc_reportes_xlsx_libros_contables.libro_mayor_xlsx.xlsx"
+    string="Report Xlsx"
+    report_type="xlsx"
+    name="mc_reportes_xlsx_libros_contables.libro_mayor_xlsx.xlsx"
+    file="mc_reportes_xlsx_libros_contables.libro_mayor_xlsx.xlsx"
+    attachment_use="False"
+  />
+
+  <menuitem name="Libro Mayor Excel" parent="account.menu_finance_reports" id="lib_mayor_rep_excel" action="wizard_libro_mayor" sequence="10"/>    
+
+
+
+  </data>
+</odoo>

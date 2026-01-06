@@ -124,11 +124,15 @@ class ConciliacionBancariaXls(models.AbstractModel):
             sheet.write(rec_row,5,line.documento,font_size_10)
             sheet.write(rec_row,6,line.nit_dpi,font_size_10)
 
-            total_bienes = line.local_bienes_gravados + line.local_bienes_exentos + line.importacion_bienes_exentos
+            #total_bienes = line.local_bienes_gravados + line.local_bienes_exentos + line.importacion_bienes_exentos
+            total_bienes = line.local_bienes_gravados
+
             sheet.write(rec_row,7,total_bienes,fontSizeRight10)
             totBienes += total_bienes
 
-            total_servicios = line.local_servicios_gravados + line.local_servicios_exentos + line.importacion_servicios_gravados + line.importacion_servicios_exentos
+            #total_servicios = line.local_servicios_gravados + line.local_servicios_exentos + line.importacion_servicios_gravados + line.importacion_servicios_exentos
+            total_servicios = line.local_servicios_gravados + line.importacion_servicios_gravados
+
             sheet.write(rec_row,8,total_servicios,fontSizeRight10)
             totServicios += total_servicios
 
@@ -147,7 +151,7 @@ class ConciliacionBancariaXls(models.AbstractModel):
             sheet.write(rec_row,14,line.total,fontSizeRight10)
             totTotal += line.total
 
-            total_exento = line.timbre_prensa + line.tasa_municipal + line.inguat
+            total_exento = line.timbre_prensa + line.tasa_municipal + line.inguat + line.local_bienes_exentos + line.importacion_bienes_exentos + line.local_servicios_exentos + line.importacion_servicios_exentos 
             sheet.write(rec_row,15,total_exento,fontSizeRight10)
             sheet.write(rec_row,16,line.idp,fontSizeRight10)
 
