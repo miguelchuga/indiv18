@@ -1042,7 +1042,7 @@ class mpfel_settings(models.Model):
 
     def pdf_document(self, invoice):
         for rec in self:
-            if invoice.journal_id.ws_url_pdf and invoice.mpfel_sat_uuid:
+            if invoice.journal_id.ws_url_pdf and invoice.mpfel_sat_uuid and self.provider == 'infile':
                 url = invoice.journal_id.ws_url_pdf % (invoice.mpfel_sat_uuid)
                 response = requests.get(url)
                 content_pdf = ''
@@ -1050,7 +1050,29 @@ class mpfel_settings(models.Model):
                     content_pdf = base64.b64encode(response.content)
                     invoice.write({'mpfel_pdf': content_pdf,
                                    'mpfel_file_name': invoice.mpfel_sat_uuid + '.' + 'pdf' })
-            print(invoice)
+            if invoice.journal_id.ws_url_pdf and invoice.mpfel_sat_uuid and self.provider == 'megaprint':
+                pdf_headers = {
+                                 'Content-Type': 'application/xml',
+                                 'Authorization': 'Bearer {}'.format(self.token)
+                               }
+                _sat_uid = invoice.mpfel_sat_uuid
+
+                pdf_data = """<RetornaPDFRequest>
+                              <uuid>{ThisisaUUID}</uuid>
+                              </RetornaPDFRequest>
+                              """.format(
+                                        ThisisaUUID=_sat_uid
+                                        )
+                pdf_response = requests.post(url=invoice.journal_id.ws_url_pdf,
+                                             headers=pdf_headers, data=pdf_data)
+                result_pdf = xmltodict.parse(pdf_response.text)
+                pdf = result_pdf['RetornaPDFResponse']['pdf']
+                invoice.write({'mpfel_pdf': pdf,
+                                'mpfel_file_name': invoice.mpfel_sat_uuid + '.' + 'pdf' })
+                print("-----------Genero PDF ------------")
+                print(invoice)
+                print("----------------------------------")
+
 
     def void_document_infile(self, invoice):
         token = None
