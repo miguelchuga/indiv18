@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="purchase_order_form" model="ir.ui.view">
+        <field name="name">purchase.order.currency.rate.form</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form"/>
+        <field name="arch" type="xml"> 
+            <field name="currency_id" position="after">
+                <field name="not_company_currency" invisible="1"/>
+                <field name="use_custom_rate" groups="base.group_multi_currency" invisible="not not_company_currency" readonly="state!='draft'"/>
+                <field name="acs_currency_rate" groups="base.group_multi_currency" invisible="not not_company_currency or not use_custom_rate"/>
+                <field name="custom_rate" groups="base.group_multi_currency" invisible="not not_company_currency or not use_custom_rate" readonly="not use_custom_rate or state!='draft'"/>
+            </field>
+            <field name="tax_totals" position="after">
+                <field name="company_currency_id" invisible="1"/>
+                <field name="amount_total_company_currency" widget="monetary" options="{'currency_field': 'company_currency_id'}" invisible="not not_company_currency"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
