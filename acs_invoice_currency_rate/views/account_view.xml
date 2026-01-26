@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+    <record id="view_move_form" model="ir.ui.view">
+        <field name="name">account.move.currency.rate.form</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='journal_div']" position="after">
+                <field name="not_company_currency" invisible="1"/>
+                <field name="use_custom_rate" groups="base.group_multi_currency" invisible="not not_company_currency" readonly="state!='draft'"/>
+                <field name="currency_rate" groups="base.group_multi_currency" invisible="not not_company_currency or not use_custom_rate"/>
+                <field name="custom_rate" groups="base.group_multi_currency" invisible="not not_company_currency or not use_custom_rate" readonly="not use_custom_rate or state!='draft'"/>
+            </xpath>
+            <field name="amount_residual" position="after">
+                <field name="amount_total_company_currency" string="Amount in Company Currency" widget="monetary" options="{'currency_field': 'company_currency_id'}" invisible="not not_company_currency"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>
