@@ -425,8 +425,8 @@ class MCLibroCompras(models.Model):
                 _documento = invoice_id.documento_gt
             else:
                 if  invoice_id.mpfel_sat_uuid:
-                    _serie = invoice_id.infile_serial 
-                    _documento = invoice_id.infile_number
+                    _serie = invoice_id.serie_gt #invoice_id.infile_serial 
+                    _documento = invoice_id.documento_gt #invoice_id.infile_number
                 else:                
                     _serie = invoice_id.serie_gt
                     _documento = invoice_id.documento_gt
