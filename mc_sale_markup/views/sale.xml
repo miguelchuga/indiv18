@@ -3,8 +3,8 @@
 
     <data>
     
-        <record id="inherit_view_id_sale_marckup" model="ir.ui.view">
-            <field name="name">Vista Form Sale Markup</field>
+        <record id="inherit_view_id_sale_marckup18" model="ir.ui.view">
+            <field name="name">Vista Form Sale Markup18</field>
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
