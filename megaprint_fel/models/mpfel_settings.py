@@ -569,33 +569,16 @@ class mpfel_settings(models.Model):
                     adendasitem = ''
                 else:
                     adendas = """<dte:Adenda>
-	   		    <dte:AdendaDetail id="AdendaSummary">
-				    <dte:AdendaSummary>
-					    <dte:Valor1>{ciudad}</dte:Valor1>
-                        <dte:Valor2>{Vendedor}</dte:Valor2>
-                        <dte:Valor3>{exento}</dte:Valor3>
-                        <dte:Valor4>{gravado}</dte:Valor4>
-                        <dte:Valor5>{recibido}</dte:Valor5>
-                        <dte:Valor6>{pedido}</dte:Valor6>
-                        <dte:Valor7>{tipo}</dte:Valor7>
-                        <dte:Valor8>{impreso}</dte:Valor8>
-                        <dte:Valor9>{atendio}</dte:Valor9>
-                        <dte:Valor10>{departamento}</dte:Valor10>
+                            <dte:AdendaDetail id="AdendaSummary">
+                                    <dte:AdendaSummary>
+                                            <dte:Valor1>{NoPedido}</dte:Valor1>
+                        <dte:Valor2>{OrdenCompra}</dte:Valor2>
+                        <dte:Valor3>{Vendedor}</dte:Valor3>
+                                    </dte:AdendaSummary>
+                            <dte:AdendaItems>
+                """.format(NoPedido=invoice.invoice_origin, OrdenCompra='', Vendedor=invoice.user_id.name)
 
-				    </dte:AdendaSummary>
-  			    <dte:AdendaItems>
-                """.format(ciudad=invoice.partner_id.city,  
-                           Vendedor=escape_string_nombre2(invoice.user_id.name), 
-                           exento=format(invoice.x_exento_total, ',.2f'),
-                           gravado=format(invoice.x_gravado_total, ',.2f'),
-                           recibido=invoice_sign_date,
-                           pedido=invoice.invoice_origin,
-                           tipo=invoice.invoice_payment_term_id.name,
-                           impreso=invoice_sign_date,
-                           atendio=invoice.env.user.name,
-                           departamento=invoice.partner_id.state_id.name
 
-                           )
                     #adendas cleanmaster
                     adendasitem = ''
                     line_number = 0
