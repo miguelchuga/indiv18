@@ -126,9 +126,55 @@ class AccountTax(models.Model):
         return value
 
 
-
     @api.depends('formula')
     def _compute_formula_decoded_info(self):
+        for tax in self:
+            if tax.amount_type != 'code':
+                tax.formula_decoded_info = None
+                continue
+
+            formula = (tax.formula or '0.0').strip()
+            if tax.amount_type == 'code' and tax.regimen_simplificado:
+                ctx = dict(tax.env.context)
+                if 'x_rate' in ctx:
+                    x_rate = tax.env.context.get('x_rate')
+                    renta_imponible_mensual = tax.renta_imponible_mensual * x_rate  
+                    importe_fijo = tax.importe_fijo * x_rate
+                    renta_imponible_mensual = format(renta_imponible_mensual, '.2f')
+                    importe_fijo = format(importe_fijo, '.2f')
+                    formula = formula.replace("x", renta_imponible_mensual)
+                    formula = formula.replace("z", importe_fijo)
+                    formula = (formula or '0.0').strip()
+
+            formula_decoded_info = {
+                'js_formula': formula,
+                'py_formula': formula,
+            }
+
+            product_fields = set()
+            groups = re.findall(r'((?:product\.)(?P<field>\w+))+', formula) or []
+            Product = self.env['product.product']
+            for group in groups:
+                field_name = group[1]
+                if field_name in Product and not Product._fields[field_name].relational:
+                    product_fields.add(field_name)
+                    formula_decoded_info['py_formula'] = formula_decoded_info['py_formula'].replace(f"product.{field_name}", f"product['{field_name}']")
+            formula_decoded_info['product_fields'] = list(product_fields)
+
+            product_uom_fields = set()
+            groups = re.findall(r'((?:uom\.)(?P<field>\w+))+', formula) or []
+            Uom = self.env['uom.uom']
+            for group in groups:
+                field_name = group[1]
+                if field_name in Uom and not Uom._fields[field_name].relational:
+                    product_uom_fields.add(field_name)
+                    formula_decoded_info['py_formula'] = formula_decoded_info['py_formula'].replace(f"uom.{field_name}", f"uom['{field_name}']")
+            formula_decoded_info['product_uom_fields'] = list(product_uom_fields)
+
+            tax.formula_decoded_info = formula_decoded_info
+            
+    @api.depends('formula')
+    def _compute_formula_decoded_info_old(self):
         for tax in self:
             if tax.amount_type != 'code':
                 tax.formula_decoded_info = None
